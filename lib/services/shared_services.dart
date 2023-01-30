@@ -14,8 +14,10 @@ class SharedService extends StatefulWidget {
 
 class _SharedServiceState extends State<SharedService> {
   late String finalEmail = '';
+
   Future getValidationData() async {
-    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
     var obtainedData = sharedPreferences.getString('data');
     setState(() {
       if (obtainedData != null) {
@@ -29,8 +31,12 @@ class _SharedServiceState extends State<SharedService> {
     getValidationData().whenComplete(() async {
       Timer(
           const Duration(seconds: 1),
-              () => Navigator.pushAndRemoveUntil(context,
-              MaterialPageRoute(builder: (context) => finalEmail.isEmpty ? const MainMenu() : const HomePage()), (_) => false));
+          () => Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      finalEmail.isEmpty ? const MainMenu() : HomePage()),
+              (_) => false));
     });
     super.initState();
   }
@@ -39,7 +45,6 @@ class _SharedServiceState extends State<SharedService> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-
       body: WillPopScope(
         onWillPop: () async => false,
         child: const Center(

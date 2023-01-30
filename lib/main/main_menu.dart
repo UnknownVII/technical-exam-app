@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:technical_exam/account/login.dart';
+import 'package:technical_exam/account/register.dart';
 
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -132,20 +133,41 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-
+                            SizedBox(height: 10,),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 55,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: const Color(0xFFE4EBF8),
+                                  backgroundColor: const Color(0xFF2E315A),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ), // foreground
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                        const RegisterScreen()),
+                                  );
+                                },
+                                child: const Text(
+                                  "Register",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ),
                           ],
-
                         ),
-
                       ),
-
                     ],
                   ),
-
                 ),
                 Center(
-                  child: Text (
-                      "A Flutter Application for Technical Exam @geidi",
+                  child: Text(
+                    "A Flutter Application for Technical Exam @geidi",
                     style: TextStyle(color: Color(0xFFE4EBF8)),
                   ),
                 )

@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const SharedService(),
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => const HomePage(),
+        '/home': (BuildContext context) =>  HomePage(),
         '/menu': (BuildContext context) => const MainMenu(),
       },
     );
