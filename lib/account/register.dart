@@ -30,7 +30,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     nameFocus = FocusNode();
     emailFocus = FocusNode();
     passwordFocus = FocusNode();
-    regRequestModel = new RegisterRequestModel(name: '', email: '', password: '');
+    regRequestModel =
+        new RegisterRequestModel(name: '', email: '', password: '');
   }
 
   @override
@@ -71,7 +72,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        color: Theme.of(context).hintColor.withOpacity(0.2), offset: Offset(0, 10), blurRadius: 20),
+                        color: Theme.of(context).hintColor.withOpacity(0.2),
+                        offset: Offset(0, 10),
+                        blurRadius: 20),
                   ],
                 ),
                 child: Stack(
@@ -91,13 +94,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             children: [
                               Icon(
                                 Icons.arrow_back_rounded,
-                                color: Color(0xFFFCC13A),
+                                color: Theme.of(context).primaryColor,
                               ),
                               Text(
                                 '  Back',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Color(0xFFFCC13A),
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                             ],
@@ -132,11 +135,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 LengthLimitingTextInputFormatter(34),
                               ],
                               onSaved: (input) => regRequestModel.name = input!,
-                              validator: (input) => input!.length < 6 ? "Name is less than 6 characters" : null,
+                              validator: (input) => input!.length < 6
+                                  ? "Name is less than 6 characters"
+                                  : null,
                               decoration: new InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor.withOpacity(0.2),
+                                    color: Theme.of(context)
+                                        .primaryColor
+                                        .withOpacity(0.2),
                                   ),
                                 ),
                                 disabledBorder: InputBorder.none,
@@ -147,20 +154,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Colors.redAccent,
+                                    color: Color(0xFFFD5066),
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Colors.redAccent,
+                                    color: Color(0xFFFD5066),
                                   ),
                                 ),
-                                contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                                contentPadding: EdgeInsets.only(
+                                    left: 15, bottom: 11, top: 11, right: 15),
                                 labelText: 'Username',
                                 labelStyle: TextStyle(
-                                  color: nameFocus.hasFocus ? Color(0xFF5B3415) : Colors.grey,
+                                  color: nameFocus.hasFocus
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.grey,
                                 ),
-                                prefixIcon: Icon(Icons.account_box_rounded, color: Theme.of(context).primaryColor),
+                                prefixIcon: Icon(Icons.account_box_rounded,
+                                    color: Theme.of(context).primaryColor),
                               ),
                             ),
                             SizedBox(
@@ -171,12 +182,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               onTap: _requestFocusEmail,
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
-                              onSaved: (input) => regRequestModel.email = input!,
-                              validator: (input) => !input!.contains("@") ? "Email Address invalid" : null,
+                              onSaved: (input) =>
+                                  regRequestModel.email = input!,
+                              validator: (input) => !input!.contains("@")
+                                  ? "Email Address invalid"
+                                  : null,
                               decoration: new InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor.withOpacity(0.2),
+                                    color: Theme.of(context)
+                                        .primaryColor
+                                        .withOpacity(0.2),
                                   ),
                                 ),
                                 disabledBorder: InputBorder.none,
@@ -187,20 +203,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Colors.redAccent,
+                                    color: Color(0xFFFD5066),
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.redAccent,
-                                  ),
+                                  borderSide:
+                                      BorderSide(color: Color(0xFFFD5066)),
                                 ),
-                                contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                                contentPadding: EdgeInsets.only(
+                                    left: 15, bottom: 11, top: 11, right: 15),
                                 labelText: 'Email Address',
                                 labelStyle: TextStyle(
-                                  color: emailFocus.hasFocus ? Color(0xFF5B3415) : Colors.grey,
+                                  color: emailFocus.hasFocus
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.grey,
                                 ),
-                                prefixIcon: Icon(Icons.email, color: Theme.of(context).primaryColor),
+                                prefixIcon: Icon(Icons.email,
+                                    color: Theme.of(context).primaryColor),
                               ),
                             ),
                             SizedBox(
@@ -210,13 +229,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               focusNode: passwordFocus,
                               onTap: _requestFocusPassword,
                               keyboardType: TextInputType.text,
-                              onSaved: (input) => regRequestModel.password = input!,
-                              validator: (input) => input!.length < 3 ? "Password is less than 6 characters" : null,
+                              onSaved: (input) =>
+                                  regRequestModel.password = input!,
+                              validator: (input) => input!.length < 3
+                                  ? "Password is less than 6 characters"
+                                  : null,
                               obscureText: hidePassword,
                               decoration: new InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor.withOpacity(0.2),
+                                      color: Theme.of(context)
+                                          .primaryColor
+                                          .withOpacity(0.2),
                                     ),
                                   ),
                                   disabledBorder: InputBorder.none,
@@ -227,28 +251,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.redAccent,
+                                      color: Color(0xFFFD5066),
                                     ),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.redAccent,
+                                      color: Color(0xFFFD5066),
                                     ),
                                   ),
-                                  contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                                  contentPadding: EdgeInsets.only(
+                                      left: 15, bottom: 11, top: 11, right: 15),
                                   labelText: 'Password',
                                   labelStyle: TextStyle(
-                                    color: passwordFocus.hasFocus ? Color(0xFF5B3415) : Colors.grey,
+                                    color: passwordFocus.hasFocus
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.grey,
                                   ),
-                                  prefixIcon: Icon(Icons.lock, color: Theme.of(context).primaryColor),
+                                  prefixIcon: Icon(Icons.lock,
+                                      color: Theme.of(context).primaryColor),
                                   suffixIcon: IconButton(
                                     onPressed: () {
                                       setState(() {
                                         hidePassword = !hidePassword;
                                       });
                                     },
-                                    color: Theme.of(context).primaryColor.withOpacity(0.4),
-                                    icon: Icon(hidePassword ? Icons.visibility : Icons.visibility_off),
+                                    color: Theme.of(context)
+                                        .primaryColor
+                                        .withOpacity(0.4),
+                                    icon: Icon(hidePassword
+                                        ? Icons.visibility
+                                        : Icons.visibility_off),
                                   )),
                             ),
                             SizedBox(
@@ -259,17 +291,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               height: 55,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
+                                  foregroundColor: Color(0xFFE4EBF8),
+                                  backgroundColor:
+                                      Theme.of(context).primaryColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(24.0),
-                                  ),
-                                  primary: Color(0xFF5B3415), // background
-                                  onPrimary: Color(0xFFFCC13A), // foreground
+                                  ), // foreground
                                 ),
                                 onPressed: () {
                                   int alertTime = 3;
                                   _timer = Timer(Duration(seconds: 20), () {
                                     setState(
-                                          () {
+                                      () {
                                         isApiCallProcess = false;
                                         showDialog(
                                           context: context,
@@ -279,26 +312,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 children: [
                                                   Icon(
                                                     Icons.error,
-                                                    color: Colors.redAccent,
+                                                    color: Theme.of(context)
+                                                        .primaryColor,
                                                   ),
                                                   Text(
                                                     "  Unexpected Error",
                                                     style: TextStyle(
-                                                      color: Color(0xFF5B3415),
-                                                      fontWeight: FontWeight.bold,
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                              content: Text('Connection Timeout [@_@]: Check your Internet Connection',
+                                              content: Text(
+                                                  'Connection Timeout [@_@]: Check your Internet Connection',
                                                   textAlign: TextAlign.left),
                                               actions: <Widget>[
                                                 TextButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context).pop();
-                                                    },
-                                                    child:
-                                                    const Text("OK", style: TextStyle(color: Color(0xFFFCC13A)))),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Text(
+                                                    "OK",
+                                                    style: TextStyle(
+                                                        color: Theme.of(context)
+                                                            .primaryColor),
+                                                  ),
+                                                ),
                                               ],
                                             );
                                           },
@@ -306,18 +348,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       },
                                     );
                                   });
-                                  if (validateAndSave() == false){
+                                  if (validateAndSave() == false) {
                                     _timer.cancel();
                                   }
                                   FocusManager.instance.primaryFocus?.unfocus();
                                   if (validateAndSave()) {
                                     setState(() {
                                       isApiCallProcess = true;
-
                                     });
-                                    RegisterService apiService = new RegisterService();
+                                    RegisterService apiService =
+                                        new RegisterService();
                                     apiService.login(regRequestModel).then(
-                                          (value) {
+                                      (value) {
                                         setState(() {
                                           isApiCallProcess = false;
                                         });
@@ -333,27 +375,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                   children: [
                                                     Icon(
                                                       Icons.error,
-                                                      color: Color(0xFFFCC13A),
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
                                                     ),
                                                     Text(
                                                       "  Registered",
                                                       style: TextStyle(
-                                                        color: Color(0xFF5B3415),
-                                                        fontWeight: FontWeight.bold,
+                                                        color: Theme.of(context)
+                                                            .primaryColor,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
                                                     ),
                                                   ],
                                                 ),
-                                                content: new Text(value.message),
+                                                content:
+                                                    new Text(value.message),
                                                 actions: <Widget>[
                                                   TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context).pop();
-                                                        Navigator.pushNamedAndRemoveUntil(
-                                                            context, '/menu', (_) => false);
-                                                      },
-                                                      child:
-                                                      const Text("OK", style: TextStyle(color: Color(0xFFFCC13A)))),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                      Navigator
+                                                          .pushNamedAndRemoveUntil(
+                                                              context,
+                                                              '/menu',
+                                                              (_) => false);
+                                                    },
+                                                    child: Text(
+                                                      "OK",
+                                                      style: TextStyle(
+                                                          color: Theme.of(
+                                                                  context)
+                                                              .primaryColor),
+                                                    ),
+                                                  ),
                                                 ],
                                               );
                                             },
@@ -362,7 +418,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                             onTimeout: () {
                                               _timer.cancel();
                                               Navigator.of(context).pop();
-                                              Navigator.pushNamedAndRemoveUntil(context, '/menu', (_) => false);
+                                              Navigator.pushNamedAndRemoveUntil(
+                                                  context,
+                                                  '/menu',
+                                                  (_) => false);
                                             },
                                           );
                                         } else {
@@ -375,13 +434,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                   children: [
                                                     Icon(
                                                       Icons.error,
-                                                      color: Colors.redAccent,
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
                                                     ),
                                                     Text(
                                                       "  Register",
                                                       style: TextStyle(
-                                                        color: Color(0xFF5B3415),
-                                                        fontWeight: FontWeight.bold,
+                                                        color: Theme.of(context)
+                                                            .primaryColor,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
                                                     ),
                                                   ],
@@ -389,11 +451,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 content: new Text(value.error),
                                                 actions: <Widget>[
                                                   TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context).pop();
-                                                      },
-                                                      child:
-                                                      const Text("OK", style: TextStyle(color: Color(0xFFFCC13A)))),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text(
+                                                      "OK",
+                                                      style: TextStyle(
+                                                          color: Theme.of(
+                                                                  context)
+                                                              .primaryColor),
+                                                    ),
+                                                  ),
                                                 ],
                                               );
                                             },
@@ -443,7 +512,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool validateAndSave() {
     final form = globalFormKey.currentState;
-
     if (form!.validate()) {
       form.save();
       return true;
@@ -457,9 +525,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       context: context,
       builder: (BuildContext context) {
         return new AlertDialog(
-          title: const Text("Are you sure?",
+          title: Text("Are you sure?",
               style: TextStyle(
-                color: Color(0xFF5B3415),
+                color: Theme.of(context).primaryColor,
                 fontWeight: FontWeight.bold,
               )),
           content: const Text("Account creation will be stopped"),
@@ -467,21 +535,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
             TextButton(
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
-                    context, MaterialPageRoute(builder: (context) => MainMenu()), (_) => false);
+                    context,
+                    MaterialPageRoute(builder: (context) => MainMenu()),
+                    (_) => false);
               },
               child: const Text(
                 "CONFIRM",
-                style: TextStyle(color: Colors.redAccent),
+                style: TextStyle(color: Color(0xFFFD5066)),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: const Text(
+              child: Text(
                 "CANCEL",
                 style: TextStyle(
-                  color: Color(0xFFFCC13A),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),
