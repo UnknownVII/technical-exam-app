@@ -19,8 +19,7 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controllerAnimation =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    _controllerAnimation = AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _animation = Tween(
       begin: 0.0,
       end: 1.0,
@@ -48,15 +47,10 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
         onWillPop: () async {
           final now = DateTime.now();
           final maxDuration = const Duration(seconds: 1);
-          final isWarning =
-              lastPressed == null || now.difference(lastPressed!) > maxDuration;
+          final isWarning = lastPressed == null || now.difference(lastPressed!) > maxDuration;
           if (isWarning) {
             lastPressed = DateTime.now();
-            Fluttertoast.showToast(
-                msg: "Double Tap to Close App",
-                backgroundColor: Color(0xFFE4EBF8),
-                textColor: Theme.of(context).primaryColor,
-                toastLength: Toast.LENGTH_SHORT);
+            Fluttertoast.showToast(msg: "Double Tap to Close App", backgroundColor: Color(0xFF202342), textColor: Color(0xFFE4EBF8), toastLength: Toast.LENGTH_SHORT);
             return false;
           } else {
             Fluttertoast.cancel();
@@ -90,20 +84,13 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 30, horizontal: 20),
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 30, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                        margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white,
                           boxShadow: [
-                            BoxShadow(
-                                color: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.2),
-                                offset: Offset(0, 10),
-                                blurRadius: 20),
+                            BoxShadow(color: Theme.of(context).hintColor.withOpacity(0.2), offset: Offset(0, 10), blurRadius: 20),
                           ],
                         ),
                         child: Column(
@@ -122,9 +109,7 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoginScreen()),
+                                    MaterialPageRoute(builder: (context) => const LoginScreen()),
                                   );
                                 },
                                 child: const Text(
@@ -133,7 +118,9 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             SizedBox(
                               width: double.infinity,
                               height: 55,
@@ -148,9 +135,7 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                        const RegisterScreen()),
+                                    MaterialPageRoute(builder: (context) => const RegisterScreen()),
                                   );
                                 },
                                 child: const Text(

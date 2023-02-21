@@ -16,8 +16,7 @@ class _SharedServiceState extends State<SharedService> {
   late String finalEmail = '';
 
   Future getValidationData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
+    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var obtainedData = sharedPreferences.getString('data');
     setState(() {
       if (obtainedData != null) {
@@ -29,14 +28,11 @@ class _SharedServiceState extends State<SharedService> {
   @override
   void initState() {
     getValidationData().whenComplete(() async {
-      Timer(
-          const Duration(seconds: 1),
-          () => Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      finalEmail.isEmpty ? const MainMenu() : HomePage()),
-              (_) => false));
+      // Timer(
+      //     const Duration(seconds: 1),
+      //     () =>
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => finalEmail.isEmpty ? const MainMenu() : HomePage()), (_) => false);
+      // );
     });
     super.initState();
   }

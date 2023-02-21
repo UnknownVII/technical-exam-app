@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  final String apiUrlget = "https://technical-exam-api.onrender.com/test/all-objects";
+  final String apiUrlget = "https://technical-exam-api.vercel.app/test/all-objects";
 
   List<dynamic> _users = [];
 
@@ -96,8 +96,8 @@ class _HomePageState extends State<HomePage> {
     print("Status Code [" + result.statusCode.toString() + "]: All Data Fetched");
     Fluttertoast.showToast(
       msg: "All Contacts fetched",
-      backgroundColor: Color(0xFFE4EBF8),
-      textColor: Theme.of(context).primaryColor,
+      backgroundColor: Color(0xFF202342),
+      textColor: Color(0xFFE4EBF8),
     );
   }
 
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var authKeyObtained = sharedPreferences.getString('authKey');
     return http.delete(
-      Uri.parse('https://technical-exam-api.onrender.com/test/delete/' + id),
+      Uri.parse('https://technical-exam-api.vercel.app/test/delete/' + id),
       headers: <String, String>{
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
         final isWarning = lastPressed == null || now.difference(lastPressed!) > maxDuration;
         if (isWarning) {
           lastPressed = DateTime.now();
-          Fluttertoast.showToast(msg: "Double Tap to Close App", backgroundColor: Color(0xFFE4EBF8), textColor: Theme.of(context).primaryColor, toastLength: Toast.LENGTH_SHORT);
+          Fluttertoast.showToast(msg: "Double Tap to Close App", backgroundColor: Color(0xFF202342), textColor: Color(0xFFE4EBF8), toastLength: Toast.LENGTH_SHORT);
           return false;
         } else {
           Fluttertoast.cancel();
@@ -547,7 +547,9 @@ class _HomePageState extends State<HomePage> {
                                     "Search " + "'" + stringVal + "'" + " does not exists",
                                     style: TextStyle(color: Color(0xFFE4EBF8)),
                                   ),
-                                  SizedBox(height: 10,),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
                                   Text(
                                     "Query can be of first name, last name, age, course, or year ",
                                     style: TextStyle(color: Color(0xFFE4EBF8)),
@@ -612,8 +614,8 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       Fluttertoast.showToast(
         msg: "All Contacts fetched",
-        backgroundColor: Color(0xFFE4EBF8),
-        textColor: Theme.of(context).primaryColor,
+        backgroundColor: Color(0xFF202342),
+        textColor: Color(0xFFE4EBF8),
       );
       getAuthKeyData();
     });
@@ -623,12 +625,12 @@ class _HomePageState extends State<HomePage> {
     switch (item) {
       case 0:
         //print("Account is Pressed");
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AccountScreen(currentUser: currentUser, lengthList: lengthList),
-            ),
-          );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AccountScreen(currentUser: currentUser, lengthList: lengthList),
+          ),
+        );
         break;
       case 1:
         //print("About is Pressed");
@@ -660,8 +662,8 @@ class _HomePageState extends State<HomePage> {
                     sharedPreferences.remove('currentEmail');
                     Fluttertoast.showToast(
                       msg: "Logged out Successfully",
-                      backgroundColor: Color(0xFFE4EBF8),
-                      textColor: Theme.of(context).primaryColor,
+                      backgroundColor: Color(0xFF202342),
+                      textColor: Color(0xFFE4EBF8),
                     );
                     Navigator.pushNamedAndRemoveUntil(context, '/menu', (_) => false);
                   },
@@ -685,7 +687,7 @@ class _HomePageState extends State<HomePage> {
         break;
       case 3:
         setState(() {
-          Fluttertoast.showToast(msg: "App ver.0.2.1-alpha", backgroundColor: Color(0xFFE4EBF8), textColor: Theme.of(context).primaryColor, toastLength: Toast.LENGTH_SHORT);
+          Fluttertoast.showToast(msg: "App ver.0.2.1-alpha", backgroundColor: Color(0xFF202342), textColor: Color(0xFFE4EBF8), toastLength: Toast.LENGTH_SHORT);
         });
     }
   }

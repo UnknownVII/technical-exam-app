@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ProgressHUD extends StatelessWidget {
-   final Widget child;
-   final bool inAsyncCall;
-   final double opacity;
-   final Color color;
+  final Widget child;
+  final bool inAsyncCall;
+  final double opacity;
+  final Color color;
 
-   const ProgressHUD({
-    Key? key,
-    required this.child,
-    required this.inAsyncCall,
-    this.opacity = 0.3,
-    this.color = const Color(0xFF2E315A)
-  }) : super(key: key);
+  const ProgressHUD({Key? key, required this.child, required this.inAsyncCall, this.opacity = 0.3, this.color = const Color(0xFF2E315A)}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

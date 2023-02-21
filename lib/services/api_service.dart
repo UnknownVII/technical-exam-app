@@ -4,7 +4,6 @@ import 'dart:convert';
 
 import 'package:technical_exam/model/login_model.dart';
 
-
 class APIService {
   var client = http.Client();
 
@@ -12,7 +11,7 @@ class APIService {
     print(requestModel.toJson());
     String email = requestModel.email.toString();
     String password = requestModel.password.toString();
-    final response = await client.post(Uri.parse('https://technical-exam-api.onrender.com/user/login'),
+    final response = await client.post(Uri.parse('https://technical-exam-api.vercel.app/user/login'),
         headers: <String, String>{
           "Accept": "application/json",
           'Content-Type': 'application/json; charset=UTF-8',
@@ -36,7 +35,7 @@ class RegisterService {
     String name = regrequestModel.name.toString();
     String email = regrequestModel.email.toString();
     String password = regrequestModel.password.toString();
-    final response = await client.post(Uri.parse('https://technical-exam-api.onrender.com/user/register'),
+    final response = await client.post(Uri.parse('https://technical-exam-api.vercel.app/user/register'),
         headers: <String, String>{
           "Accept": "application/json",
           'Content-Type': 'application/json; charset=UTF-8',
